@@ -1,0 +1,70 @@
+{
+  "name": "node-red-contrib-nina",
+  "version": "0.0.0",
+  "description": "Node-RED node for querying NINA (Notfall-Informations- und Nachrichten- App des Bundes)",
+  "author": {
+    "name": "naimo84",
+    "email": "git@neumann-benjamin.de"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "contributors": [
+    {
+      "name": "naimo84",
+      "email": "git@neumann-benjamin.de"
+    }
+  ],
+  "homepage": "https://github.com/naimo84/node-red-contrib-nina",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/naimo84/node-red-contrib-nina/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "node-red",
+    "nina",  
+    "nodered",
+    "ics",
+    "Smart Home",
+    "home automation"
+  ],
+  "node-red": {
+    "nodes": {
+      "nina-warnings": "dist/nina-warnings.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naimo84/node-red-contrib-nina"
+  },
+  "scripts": {
+    "release": "release-it",
+    "dev": "gulp develop",
+    "build": "gulp"
+  },
+  "dependencies": {
+    "cron": "^1.8.2",
+    "cron-parser": "^4.1.0",
+    "debug": "^4.3.3",
+    "got": "^11.0.0"    
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.1",
+    "@types/node-red": "^1.1.1",
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-watch": "^5.0.1",
+    "node-red": "2.0.6",   
+    "nodemon": "^2.0.14",
+    "release-it": "^14.11.8",
+    "typescript": "^4.4.4"
+  },
+  "funding": {
+    "type": "paypal",
+    "url": "https://paypal.me/NeumannBenjamin"
+  }
+}

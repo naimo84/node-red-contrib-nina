@@ -1,0 +1,96 @@
+<script type="text/javascript">
+
+
+    RED
+        .nodes
+        .registerType('nina-warnings', {
+            category: 'warnings',
+            defaults: {                
+                cron: {},
+                timeout:{},
+                timeoutUnits:{},                
+                agsArray: {},
+                filterText: {},              
+                ignoreLhp: {},
+                ignoreDwd: {},
+            },
+            inputs: 1,
+            outputs: 1,     
+            color: "#FFFF00",
+            label: function () {
+                if (this.name) {
+                    return this.name;
+                } else if (this.confignode.name) {
+                    return this.confignode.name;
+                }
+
+                return "nina warnings";
+            },
+            icon: "font-awesome/fa-exclamation-triangle",
+            paletteLabel: "nina",
+            oneditprepare: function () {
+                var node = this;
+            }
+        });
+</script>
+
+<script type="text/x-red" data-template-name="nina-warnings">
+    <style>
+        .event {
+            display:flex;
+        }
+        .event input {
+            flex:1
+        }
+        .event span {
+            flex:1
+        }
+        .event label {
+            min-width: 175px;
+            align-self: center;         
+        }  
+        .padding-top {
+            padding-top: 10px;
+        }
+        .value{
+            align-self: left;
+        }
+    </style>  
+    
+    <div class="form-row event">
+        <label for="node-input-timeout">Updateinterval</label>
+        <input type="number" id="node-input-timeout" />
+        <select id="node-input-timeoutUnits" style="width:200px !important">          
+            <option value="seconds">Seconds</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+          </select>
+    </div>
+    <div class="form-row event">
+        <label for="node-input-agsArray">AGS des Landkreis</label>
+        <input type="text" id="node-input-agsArray" placeholder="09162,09362"/>
+    </div>
+    <div class="form-row">
+        <a target="_blank" href="https://www.statistikportal.de/de/gemeindeverzeichnis">https://www.statistikportal.de/de/gemeindeverzeichnis</a> <br>Auf den Link klicken um die AGS Nummer für die gesuchte Stadt / Gemeinde zu ermitteln (z.B. Flensburg=01001)</div>
+    </div>    
+    <div class="form-row">
+         <label for="node-input-ignoreDwd" style="width:170px !important">Ignoriere Deutscher Wetterdienst</label>
+        <input type="checkbox" id="node-input-ignoreDwd" style="width:16px !important"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-ignoreLhp" style="width:170px !important">Ignoriere Hochwassermeldungen</label>
+        <input type="checkbox" id="node-input-ignoreLhp" style="width:16px !important"/>
+    </div>
+    <div class="form-row event">
+        <label for="node-input-filterText">Filter z.B. Ortsteile oder Gemeinden</label>
+        <input type="text" id="node-input-filterText" placeholder="München"/>
+    </div>
+    <div class="form-row event">
+        <label for="node-input-cron"><i class="fa fa-clock-o"></i> <span>Cron</span></label>
+        <input type="text" id="node-input-cron" placeholder="0 */10 * * * *">
+    </div>    
+</script>
+<script type="text/x-red" data-help-name="nina-warnings">
+
+</script>
